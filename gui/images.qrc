@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/images">
+        <!-- MuiBuilderQt's own program icon - window titlebar (Linux) and
+             QApplication-wide default window icon (see main.cpp). The
+             Windows .exe icon (taskbar/Explorer/Alt-Tab) is embedded
+             separately at link time via RC_ICONS in MuiBuilderQt.pro
+             (images/muibuilderqt.ico) - that one is NOT loaded from this
+             Qt resource, it's a native Windows resource baked into the
+             binary itself. Designed to read as the same visual family as
+             AmigaED's own images/amiga_classic.png (matching rainbow
+             accent colours sampled from it), but with a shape of its own
+             (a small GUI-window mockup) rather than reusing AmigaED's
+             checkmark logo for a different application.
+
+             The explicit alias= below is required, not cosmetic: without
+             it, rcc keeps the file's path relative to this .qrc (which
+             itself lives in gui/, so the on-disk path is images/
+             muibuilderqt.png) nested under the prefix as-is, producing
+             the resource path :/images/images/muibuilderqt.png - not
+             :/images/muibuilderqt.png as main.cpp/mainwindow.cpp
+             reference it. That mismatch was actually hit and diagnosed
+             here: the earlier alias-less version built and linked
+             without any error, but every QIcon(":/images/
+             muibuilderqt.png") load silently returned a non-null-but-
+             empty icon (0 available sizes) at runtime, so the .exe/app
+             build looked fine while the icon simply never appeared
+             anywhere. translations.qrc above already gets this right by
+             using alias= on its own <file> entries - this mirrors that
+             pattern. -->
+        <file alias="muibuilderqt.png">images/muibuilderqt.png</file>
+    </qresource>
+</RCC>

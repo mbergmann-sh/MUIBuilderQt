@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/translations">
+        <file alias="muibuilderqt_de.qm">translations/muibuilderqt_de.qm</file>
+        <!-- Qt's OWN German translation for its built-in strings - most
+             importantly QMessageBox's standard button labels ("&Yes"/
+             "&No"/"OK"/"Cancel"/...), which muibuilderqt_de.qm has no
+             control over (they're never passed through this app's own
+             tr() calls at all - QMessageBox::question()/etc. with
+             QMessageBox::Yes|QMessageBox::No|... builds them from Qt's
+             own internal strings). Ported from AmigaED's own
+             translations.qrc, which fixes the exact same real,
+             previously-reported bug the same way (see AmigaED's own
+             mainwindow.cpp applyGuiLanguage()). Bundled as a resource
+             (copied from this Qt installation's own
+             QT_INSTALL_TRANSLATIONS) rather than loaded from the end
+             user's Qt install at runtime, so it's guaranteed to be
+             present regardless of how/where MuiBuilderQt is deployed.
+             See MainWindow::applyGuiLanguage() in mainwindow.cpp. -->
+        <file alias="qtbase_de.qm">translations/qtbase_de.qm</file>
+    </qresource>
+</RCC>
