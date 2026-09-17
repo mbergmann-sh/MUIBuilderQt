@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+# debian/rules for muibuilderqt
+#
+# The upstream build system is a plain qmake .pro file (gui/MuiBuilderQt.pro),
+# not CMake/autotools, and Debian's own qmake6 dh buildsystem addon is not
+# reliably available across releases - so configure/build/install are done
+# explicitly here with qmake6 + make rather than relying on dh's build-system
+# auto-detection. This keeps the packaging portable across whichever
+# Debian/Ubuntu release actually has this file.
+
+export QT_SELECT := qt6
+BUILDDIR := $(CURDIR)/debian/build
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	mkdir -p $(BUILDDIR)
+	cd $(BUILDDIR) && qmake6 $(CURDIR)/gui/MuiBuilderQt.pro
+
+override_dh_auto_build:
+	$(MAKE) -C $(BUILDDIR)
+
+override_dh_auto_test:
+	# No automated test target wired into MuiBuilderQt.pro itself (the
+	# tests/ tree is a separate standalone qmake project with its own
+	# .pro files) - nothing to run here.
+
+override_dh_auto_install:
+	install -D -m 0755 $(BUILDDIR)/MuiBuilderQt \
+		debian/muibuilderqt/usr/bin/MUIBuilderQt
+	install -D -m 0644 debian/muibuilderqt.desktop \
+		debian/muibuilderqt/usr/share/applications/muibuilderqt.desktop
+	install -D -m 0644 gui/images/muibuilderqt.png \
+		debian/muibuilderqt/usr/share/icons/hicolor/256x256/apps/muibuilderqt.png
+
+override_dh_auto_clean:
+	rm -rf $(BUILDDIR)
+	dh_auto_clean

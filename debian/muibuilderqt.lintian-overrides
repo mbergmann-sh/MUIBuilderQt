@@ -1,0 +1,5 @@
+# This package is not intended for upload into the official Debian archive
+# (it is a personal alpha-stage project distributed via its own GitHub repo),
+# so the "first upload should close a bug" convention for the Debian NEW
+# queue does not apply here.
+muibuilderqt: initial-upload-closes-no-bugs

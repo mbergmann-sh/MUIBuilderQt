@@ -1,0 +1,23 @@
+Source: muibuilderqt
+Section: devel
+Priority: optional
+Maintainer: Michael Bergmann <mbsoftworx@gmail.com>
+Build-Depends: debhelper-compat (= 13), qt6-base-dev, qmake6
+Standards-Version: 4.6.2
+Homepage: https://github.com/mbergmann-sh/MuiBuilderQt
+Rules-Requires-Root: no
+
+Package: muibuilderqt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt6/C++ GUI designer for Amiga MUI interfaces (alpha)
+ MuiBuilderQt is a modern Qt6/C++ port of Eric Totel's classic MUI-Builder
+ (v2.3), an interactive GUI designer for the Amiga MUI (Magic User
+ Interface) toolkit. Design MUI windows and menus visually and generate
+ ready-to-compile C code for m68k-amigaos-gcc or vbcc.
+ .
+ It integrates with AmigaED (File > New Project > GUI Builder Projects)
+ but also works completely standalone.
+ .
+ This is an early ALPHA release - see /usr/share/doc/muibuilderqt for
+ details, known limitations and the exact license terms.

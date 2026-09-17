@@ -86,6 +86,24 @@ make                      # Windows (MinGW): mingw32-make
 
 On Windows, a post-build step runs `windeployqt` automatically and stages a ready-to-install copy under `MuiBuilderQt_install/install_src`, which `MuiBuilderQt_install/MuiBuilderQt.iss` (Inno Setup) turns into a Windows installer.
 
+### Building a Debian/Ubuntu package (`.deb`)
+
+The `debian/` directory contains a standard `debhelper`-based packaging setup, independent of the plain qmake build above. On a Debian- or Ubuntu-based system with the packaging tools installed:
+
+```sh
+sudo apt install build-essential debhelper qt6-base-dev qmake6 fakeroot
+dpkg-buildpackage -us -uc -b
+```
+
+This produces `../muibuilderqt_<version>_<arch>.deb` (and a matching `-dbgsym` debug package), installing:
+
+- `/usr/bin/MUIBuilderQt` — the binary (kept in this exact case to match AmigaED's own default tool-path suggestion on Linux)
+- a desktop launcher entry and hicolor icon
+- a man page (`man muibuilderqt`)
+- `/usr/share/doc/muibuilderqt/` (README, CODEGEN_NOTES, LICENSE, changelog)
+
+Install it with `sudo apt install ./muibuilderqt_<version>_<arch>.deb` (pulls in the right Qt6 runtime libraries automatically via `${shlibs:Depends}`). The package passes `lintian` cleanly.
+
 ## Using it with AmigaED
 
 Starting with AmigaED rev.160, `File ▸ New Project ▸ GUI Builder Projects ▸ MUI` launches MuiBuilderQt directly to design a brand-new project's GUI. When you're done, `File ▸ Finalise AmigaED Project` in MuiBuilderQt saves the project, generates the C code, and hands the result straight back to AmigaED, which imports it (and adds `-lmui` to the project's linker options automatically). GadTools and ReAction builders using the same mechanism are planned.

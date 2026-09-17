@@ -1,0 +1,41 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: MuiBuilderQt
+Upstream-Contact: Michael Bergmann <mbsoftworx@gmail.com>
+Source: https://github.com/mbergmann-sh/MuiBuilderQt
+Comment:
+ MuiBuilderQt is a from-scratch Qt6/C++ reimplementation (not a byte-for-byte
+ port) of Eric Totel's MUI-Builder v2.3, based on its publicly available SVN
+ source. No formal license accompanies the original MUI-Builder source, and
+ no permission from Eric Totel for this reimplementation has been confirmed.
+ See the full LICENSE file (also installed to
+ /usr/share/doc/muibuilderqt/LICENSE by this package) for the complete,
+ authoritative terms - the License stanza below is a copy of that same text.
+
+Files: *
+Copyright: 2026 Michael Bergmann
+License: LicenseRef-MuiBuilderQt-NoLicense
+
+License: LicenseRef-MuiBuilderQt-NoLicense
+ This is NOT open-source software under a formal license such as MIT,
+ GPL, BSD, or similar. No such license is granted. The source code and
+ binaries are made publicly available on GitHub so the Amiga development
+ community can use, build, and evaluate the software, and so bugs can be
+ reported and discussed - but no permission is granted to redistribute,
+ sublicense, or create and distribute derivative works, beyond what is
+ needed to build and run the program for your own use, without the
+ copyright holder's prior written consent.
+ .
+ THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM,
+ DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH
+ THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. This is
+ alpha-quality software: expect bugs, and use it at your own risk,
+ especially for anything you can't afford to lose or re-create.
+ .
+ This project is currently in an early alpha stage and its licensing
+ terms may change (for example, once MUI-Builder's original licensing
+ situation is clarified, or if a formal open-source license is adopted
+ later). Until then, the terms above apply. See the top-level LICENSE
+ file for the full, current text.

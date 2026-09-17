@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=MuiBuilderQt
+GenericName=MUI GUI Designer
+Comment=Interactive GUI designer for Amiga MUI interfaces (alpha)
+Exec=/usr/bin/MUIBuilderQt %f
+Icon=muibuilderqt
+Terminal=false
+Categories=Development;GUIDesigner;
+StartupNotify=true
